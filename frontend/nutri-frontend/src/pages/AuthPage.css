@@ -1,0 +1,12 @@
+.error-message {
+    color: red;
+    margin-bottom: 10px;
+  }
+  
+  .switch-mode {
+    margin-top: 15px;
+    color: #4caf50;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  

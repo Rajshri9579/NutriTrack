@@ -1,0 +1,76 @@
+/* General Saved Page Styling */
+.saved {
+    padding: 20px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    text-align: center; /* Center-align the title and "No saved recipes" message */
+  }
+  
+  .saved-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .no-recipes {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+  }
+  
+  /* Recipe Grid Layout */
+  .recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 7 columns */
+    gap: 200px;
+    justify-content: center; /* Center the grid */
+  }
+  
+  /* Recipe Card Styling */
+  .card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Ensure consistent card height */
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Fix Image Height */
+  .recipe-image {
+    width: 100%;
+    height: 200px; /* Fixed height for consistent image size */
+    object-fit: cover; /* Ensures the image fills the area while maintaining aspect ratio */
+    border-bottom: 1px solid #ddd; /* Optional: Add a separator between the image and content */
+  }
+  
+  /* Recipe Content Styling */
+  .recipe-content {
+    flex: 1; /* Allow content to take up available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 15px;
+  }
+  
+  .recipe-name {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+  
+  .recipe-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+    text-align: justify;
+  }

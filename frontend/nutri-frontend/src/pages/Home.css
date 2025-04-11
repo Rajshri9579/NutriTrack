@@ -1,0 +1,107 @@
+/* General Home Page Styling */
+.home {
+    padding: 20px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+  }
+  
+  .home-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Recipe Grid Layout */
+  .recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  /* Recipe Card Styling */
+  .card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Ensure consistent card height */
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Fix Image Height */
+  .recipe-image {
+    width: 100%;
+    height: 200px; /* Fixed height for consistent image size */
+    object-fit: cover; /* Ensures the image fills the area while maintaining aspect ratio */
+    border-bottom: 1px solid #ddd; /* Optional: Add a separator between the image and content */
+  }
+  
+  /* Recipe Content Styling */
+  .recipe-content {
+    flex: 1; /* Allow content to take up available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 15px;
+  }
+  
+  .recipe-name {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+  
+  .recipe-calories {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  /* Card Buttons */
+  .card-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    margin-top: auto; /* Push buttons to the bottom of the card */
+  }
+  
+  .save-button,
+  .see-more-button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .save-button {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  .save-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .see-more-button {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .save-button:hover:not(:disabled),
+  .see-more-button:hover {
+    background-color: #0056b3;
+  }
