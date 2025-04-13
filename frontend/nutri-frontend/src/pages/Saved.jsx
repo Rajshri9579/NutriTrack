@@ -1,17 +1,45 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../App_Context";
-import { useNavigate } from "react-router-dom"; // Import the useNavigate hook for navigation
- // Import the utility function for handling "See More" action
+import { useNavigate } from "react-router-dom";
 
-import "../pages/Saved.css"; // Import the CSS file for styling
+// Import the CSS file for styling
 
 function Saved() {
-  const {user ,savedRecipes } = useContext(AppContext);
-  const navigate = useNavigate(); // Initialize the navigate function
+  const { user } = useContext(AppContext); // Get the current user from context
+  const [savedRecipes, setSavedRecipes] = useState([]); // Local state for saved recipes
+  const navigate = useNavigate();
+
+  // Fetch saved recipes for the current user when the component loads
+  useEffect(() => {
+    if (user) {
+      const userRecipes = JSON.parse(localStorage.getItem(`savedRecipes_${user.id}`)) || [];
+      setSavedRecipes(userRecipes);
+    } else {
+      setSavedRecipes([]); // Clear recipes if no user is logged in
+    }
+  }, [user]);
 
   const handleSeeMore = (recipe) => {
     if (!user) return navigate("/auth");
     navigate("/details", { state: { recipe } });
+  };
+
+  const toggleSaveRecipe = (recipe) => {
+    if (!user) return navigate("/auth");
+
+    const isSaved = savedRecipes.some((r) => r.id === recipe.id);
+
+    if (isSaved) {
+      // Unsave the recipe
+      const updatedRecipes = savedRecipes.filter((r) => r.id !== recipe.id);
+      setSavedRecipes(updatedRecipes);
+      localStorage.setItem(`savedRecipes_${user.id}`, JSON.stringify(updatedRecipes));
+    } else {
+      // Save the recipe
+      const updatedRecipes = [...savedRecipes, recipe];
+      setSavedRecipes(updatedRecipes);
+      localStorage.setItem(`savedRecipes_${user.id}`, JSON.stringify(updatedRecipes));
+    }
   };
 
   return (
@@ -23,7 +51,7 @@ function Saved() {
 
       <div className="container">
         {savedRecipes.length === 0 ? (
-          <div className="alert alert-info" role="alert">
+          <div className="alert alert-info text-center" role="alert">
             No saved recipes yet. Browse and save your favorites!
           </div>
         ) : (
@@ -42,10 +70,14 @@ function Saved() {
                     <p className="card-text text-muted">{recipe.description}</p>
                     <div className="mt-auto d-flex justify-content-between">
                       <button
-                        className="btn btn-primary w-100"
+                        className="btn btn-secondary w-40"
                         onClick={() => handleSeeMore(recipe)}
+                        >See more</button>
+                      <button
+                        className={`btn ${savedRecipes.some((r) => r.id === recipe.id) ? "btn-danger" : "btn-primary"} w-40`}
+                        onClick={() => toggleSaveRecipe(recipe)}
                       >
-                        See More
+                        {savedRecipes.some((r) => r.id === recipe.id) ? "Unsave" : "Save"}
                       </button>
                     </div>
                   </div>

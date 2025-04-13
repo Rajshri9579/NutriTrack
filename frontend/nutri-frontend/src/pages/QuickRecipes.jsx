@@ -15,7 +15,7 @@ const QuickRecipes = () => {
         ) : (
           <div className="row justify-content-center gx-4 gy-4">
             {quickRecipes.map((recipe, index) => (
-              <div key={index} className="card w-150px shadow-sm" style={{ minHeight: "350px" }}>
+              <div key={index} className="card w-150px shadow-sm " style={{ minHeight: "350px" }}>
                 <img
                   src={recipe.image}
                   alt={recipe.title}
