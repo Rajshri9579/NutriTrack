@@ -4,19 +4,22 @@ export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const [user, setUser] = useState(null); // Current logged-in user
-  const [savedRecipes, setSavedRecipes] = useState({}); // Saved recipes per user
+  const [savedRecipes, setSavedRecipes] = useState([]); // Saved recipes for the logged-in user
 
   const saveRecipe = (recipe) => {
     if (!user) return; // Ensure a user is logged in
-    setSavedRecipes((prev) => ({
-      ...prev,
-      [user.email]: [...(prev[user.email] || []), recipe], // Save recipes for the current user
-    }));
+    setSavedRecipes((prev) => {
+      const updatedRecipes = [...prev, recipe];
+
+      // Save per user in localStorage
+      localStorage.setItem(`savedRecipes_${user.id}`, JSON.stringify(updatedRecipes)); 
+      return updatedRecipes;
+    });
   };
 
   const getSavedRecipes = () => {
     if (!user) return [];
-    return savedRecipes[user.email] || []; // Retrieve recipes for the current user
+    return savedRecipes; // Return saved recipes for the current user
   };
 
   return (
@@ -26,6 +29,7 @@ export const AppProvider = ({ children }) => {
         setUser,
         saveRecipe,
         getSavedRecipes,
+        savedRecipes,
       }}
     >
       {children}

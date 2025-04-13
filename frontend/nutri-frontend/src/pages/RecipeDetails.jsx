@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import { useEffect, useState } from "react";
-import "../pages/RecipeDetails.css"; // Assuming you have a CSS file for styling
+import "../pages/RecipeDetails.css"; // Keep your custom CSS
 
 function RecipeDetails() {
   const location = useLocation();
@@ -16,17 +16,36 @@ function RecipeDetails() {
     }
   }, [recipe]);
 
-  if (!recipe) return <p>No recipe selected.</p>;
+  if (!recipe) return <p className="text-center text-danger mt-5">No recipe selected.</p>;
 
   return (
-    <div className="recipe-details">
-      <div className="content">
-        <img src={recipe.image} alt={recipe.name} className="recipe-image" />
-        <h2>{recipe.name}</h2>
-        <p>{recipe.description}</p>
-        <p><strong>Calories:</strong> {recipe.calories} kcal</p>
+    <div className="d-flex">
+      {/* Sidebar */}
+      <div>
+        <Sidebar />
       </div>
-      <Sidebar />
+
+      {/* Main Content */}
+      <div className="container my-5 d-flex justify-content-center align-items-center">
+        <div className="card shadow-lg" style={{ width: "28rem" }}>
+          <img
+            src={recipe.image}
+            alt={recipe.name}
+            className="card-img-top"
+            style={{ height: "300px", objectFit: "cover" }}
+          />
+          <div className="card-body">
+            <h3 className="card-title text-center mb-3">{recipe.name}</h3>
+            <p className="card-text text-muted">{recipe.description}</p>
+            <p className="card-text text-center">
+              <strong>Calories:</strong> {recipe.calories} kcal
+            </p>
+            <p className="card-text text-center">
+              <strong>Exercise:</strong> {recipe.exercises}  
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

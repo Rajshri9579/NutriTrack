@@ -4,7 +4,7 @@ export const recipes = [
     name: 'Avocado Toast',
     image: 'https://sliceofjess.com/wp-content/uploads/2020/02/IMG_2255.jpeg',
     calories: 250,
-    exercises: ['15 min walking', '10 min cycling'],
+    exercises: ['15 min walking', ', ', '10 min cycling'],
   },
   {
     id: 2, // Added unique ID
@@ -39,14 +39,14 @@ export const recipes = [
     name: 'Butter Chicken',
     image: 'https://www.cookingclassy.com/wp-content/uploads/2021/01/butter-chicken-4.jpg',
     calories: 500,
-    exercises: ['45 min walking', '20 min cycling'],
+    exercises: ['45 min walking', ', ', '20 min cycling'],
   },
   {
     id: 8, // Added unique ID
     name: 'Grilled Chicken Salad',
     image: 'https://www.wellseasonedstudio.com/wp-content/uploads/2023/04/Grilled-chicken-salad-with-cucumbers-and-creamy-garlic-dressing-on-a-plate.jpg',
     calories: 350,
-    exercises: ['30 min walking', '15 min yoga'],
+    exercises: ['30 min walking'],
   },
   {
     id: 9, // Added unique ID
@@ -67,7 +67,7 @@ export const recipes = [
     name: 'Chole Bhature',
     image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSLB7zfxFCFag7Pt9CHnH3wk61PILgDo5CCTxT01YjSmEKOVY6uskLp8qEnLi8sIsAAMBOWo4AGXHUavOeuWowkrR4u4QtSlryJKCwcR837ajLT906ZOcBhwQuomU453tC8azJe5SikPUleEkJhz-FmTQKa8frlxB7tir-_0V97PqF89QHvQfh5iNH/s16000/IMG_20220904_210330.jpg',
     calories: 600,
-    exercises: ['1 hr walking', '30 min cycling'],
+    exercises: ['1 hr walking', ', ', '30 min cycling'],
   },
   {
     id: 12, // Added unique ID
@@ -102,7 +102,7 @@ export const recipes = [
     name: 'Rajma Chawal',
     image: 'https://www.secondrecipe.com/wp-content/uploads/2017/08/rajma-chawal-1.jpg',
     calories: 450,
-    exercises: ['40 min walking', '20 min cycling'],
+    exercises: ['40 min walking',', ', '20 min cycling'],
   },
   {
     id: 17, // Added unique ID
@@ -144,7 +144,7 @@ export const recipes = [
     name: 'Pav Bhaji',
     image: 'https://myfoodstory.com/wp-content/uploads/2021/09/Pav-Bhaji-3-360x540.jpg',
     calories: 500,
-    exercises: ['45 min walking', '20 min cycling'],
+    exercises: ['45 min walking',', ', '20 min cycling'],
   },
   {
     id: 23, // Added unique ID

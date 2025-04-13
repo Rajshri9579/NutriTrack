@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { AppContext } from "../App_Context";
-import "./Profile.css"; // Import the provided CSS file
+import "./Profile.css"; // Keep your custom CSS
 
 function Profile() {
   const { user, setUser } = useContext(AppContext);
@@ -14,33 +14,57 @@ function Profile() {
   };
 
   return (
-    <div className="profile">
-      <div className="avatar">{user.name.charAt(0).toUpperCase()}</div>
-      {editMode ? (
-        <>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Enter your name"
-          />
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-          />
-          <button onClick={handleUpdate}>Save</button>
-        </>
-      ) : (
-        <>
-          <h3>{user.name}</h3>
-          <br />
-          <p>{user.email}</p>
-          <br />
-          <button onClick={() => setEditMode(true)}>Edit</button>
-        </>
-      )}
+    <div className="container d-flex justify-content-center align-items-center vh-50 p-4">
+      <div className="card shadow p-4" style={{ width: "22rem" }}>
+        <div className="text-center mb-4">
+          <div
+            className="rounded-circle bg-primary text-white d-flex justify-content-center align-items-center"
+            style={{ width: "80px", height: "80px", margin: "0 auto", fontSize: "2rem" }}
+          >
+            {user.name.charAt(0).toUpperCase()}
+          </div>
+        </div>
+        {editMode ? (
+          <>
+            <div className="mb-1">
+              <input
+                type="text"
+                className="form-control"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Enter your name"
+              />
+            </div>
+            <div className="mb-3">
+              <input
+                type="email"
+                className="form-control"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+              />
+            </div>
+            <div className="d-flex justify-content-between">
+              <button className="btn btn-success w-100 me-2" onClick={handleUpdate}>
+                Save
+              </button>
+              <button className="btn btn-secondary w-100" onClick={() => setEditMode(false)}>
+                Cancel
+              </button>
+            </div>
+          </>
+        ) : (
+          <>
+            <h4 className="text-center">{user.name}</h4>
+            <p className="text-center text-muted">{user.email}</p>
+            <div className="text-center">
+              <button className="btn btn-primary w-100" onClick={() => setEditMode(true)}>
+                Edit Profile
+              </button>
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 }

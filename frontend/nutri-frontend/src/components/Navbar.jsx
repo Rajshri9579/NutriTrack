@@ -21,7 +21,7 @@ function Navbar() {
         ) : (
           <>
             <button onClick={() => navigate("/saved")}>Saved</button>
-            <button onClick={() => navigate("/")}>Quick Recipes</button>
+            <button onClick={() => navigate("/quick")}>Quick Recipes</button>
             <button onClick={() => navigate("/profile")}>Profile</button>
             <button onClick={handleLogout}>Logout</button>
           </>
