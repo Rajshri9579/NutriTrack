@@ -43,6 +43,11 @@ function RecipeDetails() {
             <p className="card-text text-center">
               <strong>Exercise:</strong> {recipe.exercises}  
             </p>
+            <button className="btn btn-primary w-100 mb-2" onClick={() => window.open(recipe.video, "_blank")}>
+              <a href={recipe.video} target="_blank" rel="noopener noreferrer" className="btn btn-primary w-100">
+                Watch Video 🎥
+              </a>
+            </button>
           </div>
         </div>
       </div>
